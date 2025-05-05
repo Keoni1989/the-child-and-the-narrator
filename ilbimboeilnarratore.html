@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El niño y el narrador</title>
+    <link rel="stylesheet" href="css/ilbimboeilnarratore.css">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="sfondo"></div>
+    <div id="conversazione">
+        <p id="dialogo">Ciao piccolino 😊 </p>
+        <button id="aho">Ciao!</button>
+    </div>
+
+
+    <!-- porta1 il planetario -->
+    <div id="minigioco-spazio">
+        <div id="centro">Narratore</div>
+        <div class="pianeta" data-nome="Sole"></div>
+        <div class="pianeta" data-nome="Mercurio"></div>
+        <div class="pianeta" data-nome="Venere"></div>
+        <div class="pianeta" data-nome="Terra"></div>
+        <div class="pianeta" data-nome="Luna"></div>        
+        <div class="pianeta" data-nome="Marte"></div>
+        <div class="pianeta" data-nome="Giove"></div>
+        <div class="pianeta" data-nome="Saturno"></div>
+        <div class="pianeta" data-nome="Urano"></div>
+        <div class="pianeta" data-nome="Nettuno"></div>
+        <div class="pianeta" data-nome="Plutone"></div>
+    </div>
+
+
+    <!-- porta2 la preistoria -->
+    <div id="minigioco-dino" style="display:none;">
+        <div id="dino"></div>
+        <p id="dialogoDino"></p>
+    </div>
+
+
+<!-- Porta 3: La Storia -->
+    <div id="carosello" class="carosello" style="display:none">
+        <div class="era" epoca="egiziani"></div>
+        <div class="era" epoca="romani"></div>
+        <div class="era" epoca="medioevo"></div>
+        <div class="era" epoca="rinascimento"></div>
+        <div class="era" epoca="industriale"></div>
+        <div class="era" epoca="spaziale"></div>
+        <div class="era" epoca="contemporanea"></div>
+    </div>
+    
+    <!-- porta4 l'oceano -->
+    <div id="minigioco-oceano" style="display:none;">
+        <div id="sottomarino"></div>
+            <p id="istruzioniOceano">Scrivi gli oggetti che vedi!</p>
+
+            <div id="inputWrapper">
+                <input type="text" id="inputOceano" placeholder="Scrivi qui...">
+                <button id="btnOceano"></button>
+            </div>
+            
+        <div id="oggettiOceano"></div>
+        <p id="timerOceano"></p>
+    </div>
+
+
+<script src="js/ilbimboeilnarratorecopy.js"></script>
+</body>
+</html>

@@ -1,0 +1,1101 @@
+/* Stile generale pagina */
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: "Baloo 2", Arial, Helvetica, sans-serif ;
+}
+
+body  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  text-align: center;
+  background-color: white;
+  position: relative;
+}
+
+/* Stile pulsanti */
+button {
+  padding: 8px 16px;
+  font-size: 16px;
+  font-family: "Baloo 2", Arial, Helvetica, sans-serif ;
+}
+
+/* Stile input utente */
+#inputUtente {
+  padding: 8px;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+  font-family: "Baloo 2", Arial, Helvetica, sans-serif ;
+}
+#conversazione {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  z-index: 10;
+  color: rgb(104, 17, 17);
+  padding: 16px;
+  border-radius: 12px;
+  max-width: 80vw;
+  text-align: center;
+  transition: background-color 2s ease, color 2s ease;
+}
+
+#dialogo{
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+#aho {
+  position: relative;
+  margin-top: 10px;
+  padding: 12px 24px;
+  font-size: 18px;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  z-index: 11;
+  width: auto;
+  height: auto;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+/* Quando entra in modalità minigioco */
+#aho.gioco {
+  position: fixed;
+  transition: left 0.2s ease, top 0.2s ease;
+}
+
+/* TILT */
+@keyframes tilt-glitch {
+  0% {transform: rotate(0deg);}
+  25% {transform: rotate(2deg);}
+  50% {transform: rotate(-2deg);}
+  75% {transform: rotate(1deg);}
+  100% {transform: rotate(0deg);}
+}
+
+.glitch {
+  font-style: italic;
+  transform: rotate(-5deg);
+  animation: tilt-glitch 0.2s infinite;
+  color: red;
+  text-shadow: 1px 0 red, -1px 0 blue;
+}
+
+#continuaErrore {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  background: #ff4e4e;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 1s ease;
+  z-index: 1000;
+}
+
+#continuaErrore.glitch-move {
+  animation: vibrazioneGlitch 0.3s infinite;
+}
+
+@keyframes vibrazioneGlitch {
+  0% { transform: translate(-50%, -50%) translateX(1px); }
+  25% { transform: translate(-50%, -50%) translateX(-1px); }
+  50% { transform: translate(-50%, -50%) translateY(1px); }
+  75% { transform: translate(-50%, -50%) translateY(-1px); }
+  100% { transform: translate(-50%, -50%) translateX(1px); }
+}
+
+
+
+/* SPAZIO */
+#minigioco-spazio {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  overflow: hidden;
+  z-index: 0;
+}
+
+#centro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 16px 24px;
+  border-radius: 16px;
+  text-align: center;
+  font-weight: bold;
+  max-width: 60%;
+}
+
+.pianeta {
+  width: 60px;
+  height: 60px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  position: absolute;
+  transition: transform 0.2s, box-shadow 0.3s;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.pianeta:hover {
+  transform: scale(4.2);
+  z-index: 10;
+}
+
+.pianeta.attivato {
+  box-shadow: 0 0 12px 4px lightblue;
+}
+
+#conversazione {
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  color: rgb(104, 17, 17);
+  padding: 16px;
+  border-radius: 12px;
+  max-width: 80vw;
+  text-align: center;
+}
+
+/* STELLE */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: blink 2s infinite alternate;
+}
+
+@keyframes blink {
+  from { opacity: 0.2; }
+  to   { opacity: 1; }
+}
+
+/* PREISTORIA */
+#minigioco-dino {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('../img/layout/giurassico.jpg') center center / cover no-repeat;
+  overflow: hidden;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#dino {
+  width: 130px;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: fixed;
+  top: 60%;
+  left: 0;  
+  cursor: pointer;
+  z-index: 10;
+  transition: left 1s linear; 
+  /* transition viene modificata e controllata da js con il codice transitionDuration */
+}
+
+.dino-gira {
+transform: translateY(-50%) scaleX(-1);;
+}
+
+@keyframes muoviDino {
+  0%   { left: 0; }
+  100% { left: calc(100% - 100px); }
+}
+
+#dialogoDino {
+  color: white;
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+/* STORIA */
+#minigioco-storia {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom, #3a3d98, #1b1d42);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  text-align: center;
+  padding: 20px;
+}
+
+
+#dataStorica {
+  padding: 8px;
+  font-size: 16px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+#btnCercaEvento {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: yellow;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#eventoStorico {
+  margin-top: 20px;
+  font-style: italic;
+  font-size: 18px;
+  max-width: 80%;
+}
+
+/* OCEANO */
+#minigioco-oceano {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('/esamedifinemodulo/img/layout/fondale.jpg') center center/cover no-repeat;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 50px;
+  z-index: 5;
+}
+
+#sottomarino {
+  width: 220px;
+  height: 220px;
+  background-image: url(/esamedifinemodulo/img/content/sottomarino.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: top 0.5s linear;
+  animation: dondolio 3s infinite ease-in-out; /*oscillazione*/
+}
+
+@keyframes dondolio {
+  0%   { transform: translateX(-50%) rotate(0deg); }
+  50%  { transform: translateX(-50%) rotate(3deg); }
+  100% { transform: translateX(-50%) rotate(0deg); }
+}
+
+.bolla {
+  position: absolute;
+  bottom: 0;
+  background: rgba(255,255,255, 0.7);
+  border-radius: 50%;
+  opacity: 0.8;
+  pointer-events: none;
+  animation: risalita 4s linear forwards;
+  z-index: 6;
+}
+
+@keyframes risalita {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+#inputOceano {
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+#btnOceano {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: yellow;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+#btnOceano:hover {
+  box-shadow: 0 0 10px yellow;
+  transform: scale(1.1);
+}
+
+#inputWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 33%;
+}
+
+/* carosello STORIA */
+/* #carosello {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vw;
+  gap: 10px;
+  overflow: hidden;
+  position: fixed;
+  padding: 20px;
+  background: url('../img/layout/storia.jpg') center center / cover no-repeat;
+} */
+
+#carosello {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: 
+    linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+    url('../img/layout/storia.jpg') center center / cover no-repeat;
+  z-index: 20;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+
+
+.era {
+  width: 100px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  opacity: 0.6; /* Trasparenza per le epoche non centrali */
+  border: 3px solid rgb(136, 115, 0); /* bordo dorato */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* bagliore oro */
+}
+
+.era:hover {
+  transform: scale(1.1); /* Effetto hover */
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+}
+
+.era.centro {
+  width: 200px;
+  height: 300px;
+  transform: scale(1.2); /* Ingrandisce l'elemento centrale */
+  opacity: 1; /* Rende visibile il centro */
+  border-width: 4px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+}
+
+#eventoStoria {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 100;
+  display: none;
+}
+
+#eventoStoria img {
+  width: 300px;
+  height: auto;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+
+#btnProssimaEra {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: rgb(204, 204, 172);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.evento-contenuto {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra il bottone e il contenuto */
+  justify-content: center;
+}
+
+
+/* JUST IN GRAFIC */
+#sfondo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: "Baloo 2", Arial, Helvetica, sans-serif ;
+  text-align: center;
+  position: relative;
+  background-size: 100% 100%;
+  transition: background 2s ease-in-out;
+  /* background: radial-gradient(circle, #d0e1eb 10%, #afafd4 40%); */
+  z-index: -1;
+  background-color: #c2d7e2;
+}
+
+/* Animazione di base */
+@keyframes pulsazioneBase {
+  0%, 100% { background-size: 100% 100%; }
+  20% { background-size: 110% 110%; }
+}
+
+/* Sfondi dei passaggi con animazioni dedicate */
+.sfondo1 {
+  background: radial-gradient(circle, #c2d7e2 40%, #abacd1 80%);
+  animation: pulsazione1 12s ease-in-out infinite;
+}
+
+@keyframes pulsazione1 {
+  0%, 100% { background-size: 100% 100%; }
+  20% { background-size: 110% 110%; }
+}
+
+.sfondo2 {
+ background: radial-gradient(circle, #c2d7e2 9%, #a9a9d6 20%);
+ animation: pulsazione2 6s ease-in-out infinite;
+}
+
+@keyframes pulsazione2 {
+  0%,100%{background-size:100% 100%;background-position:center;}
+  25%{background-size:170% 100%;background-position:55% 50%;}
+  50%{background-size:100% 170%;background-position:45% 50%;}
+  75%{background-size:70% 130%;background-position:50% 50%;}
+}
+
+.sfondo3 {
+  background: radial-gradient(circle, #adc8d7 9%, #6262ba 20%);
+  animation: pulsazione3 3s ease-in-out infinite;
+ }
+ 
+ @keyframes pulsazione3 {
+   0%,100%{background-size:100% 100%;background-position:center;}
+   25%{background-size:170% 100%;background-position:55% 50%;}
+   50%{background-size:100% 170%;background-position:45% 50%;}
+   75%{background-size:70% 130%;background-position:50% 50%;}
+ }
+
+.sfondo4 {
+  background: radial-gradient(circle, #e2f3cf 10%, #83c78a 25%);
+  animation: pulsazione4 3s ease-in-out infinite;
+}
+
+@keyframes pulsazione4 {
+  0%,100%{background-size:100% 100%;background-position:70% 3%}
+  25%{background-size:120% 80%;background-position:1% 100%}
+  50%{background-size:95% 110%;background-position:70% 3%}
+  75%{background-size:120% 80%;background-position:150% 100%}
+}
+
+.sfondo5 {
+  background: radial-gradient(circle, #d3ea77 7%, #7ac482 17%);
+  animation: pulsazione5 4s ease-in-out infinite;
+}
+
+@keyframes pulsazione5 {
+  0%,100%{background-size:100% 100%;background-position:center;}
+  25%{background-size:170% 100%;background-position:55% 50%;}
+  50%{background-size:100% 170%;background-position:45% 50%;}
+  75%{background-size:70% 130%;background-position:50% 50%;}
+  85%,90%,95%   { background-position: 52% 50%; }
+  87.5%,92.5%,97.5% { background-position: 48% 50%; }
+}
+
+.sfondo6 {
+  background: radial-gradient(circle at 50% 50%, #d3ea77 7%, #69b8ad 20%);
+  animation: pulsazione6 9s ease-in-out infinite;
+}
+
+@keyframes pulsazione6 {
+  0%,100%{background-size:100% 100%;background-position:center;}
+  25%{background-size:170% 100%;background-position:55% 50%;}
+  50%{background-size:100% 170%;background-position:45% 50%;}
+  75%{background-size:70% 130%;background-position:50% 50%;}
+  85%,90%,95%   { background-position: 52% 50%; }
+  87.5%,92.5%,97.5% { background-position: 48% 50%; }
+}
+
+
+.sfondo7 {
+  background: radial-gradient(circle, #d3ea77 7%, #69b8ad 25%);
+  animation: pulsazione7 6s ease-in-out infinite;
+}
+
+@keyframes pulsazione7 {
+  0%, 100% { background-size: 100% 100%; }
+  20% { background-size: 120% 120%; }
+}
+
+.sfondo8 {
+  background: radial-gradient(circle, #d3ea77 7%, #a4b869 25% 40%);
+  animation: pulsazione8 6s ease-in-out infinite;
+}
+
+@keyframes pulsazione8 {
+  0%, 100% { background-size: 100% 100%; }
+  20% { background-size: 120% 120%; }
+}
+
+.sfondo9 {
+  background: radial-gradient(circle, #942815 7%, #1b0b04 15%);
+  animation: pulsazione9 3s infinite steps(17);
+}
+
+@keyframes pulsazione9 {
+  0%, 100% { background-size: 100% 100%; }
+  20% { background-size: 100% 120%; }
+}
+
+.sfondo10 {
+  background: radial-gradient(circle, #ffbaba 5%, #2d0000 20%);
+  animation: pulsazione10 6s steps(45) infinite;
+}
+
+@keyframes pulsazione10 {
+  0% { background-position: 0 0; }
+  25% { background-position: 10px 10px; }
+  50% { background-position: -10px -10px; }
+  75% { background-position: 10px -10px; }
+  100% { background-position: 0 0; }
+}
+
+.sfondo11 {
+  background: radial-gradient(circle, #6b6c6e 1%, #8395c7 10%);
+  animation: pulsazione11 6s ease-in-out infinite;
+}
+
+@keyframes pulsazione11 {
+  0%, 100% { background-size: 100% 100%; }
+  20% { background-size: 120% 120%; }
+}
+
+/* .sfondo12 {
+  background: radial-gradient(circle at center, #6b6c6e 7%, #9b77c4 20%);
+  animation: pulsazione12 2s ease-in-out infinite;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@keyframes pulsazione12 {
+  0%, 100%   { background-size: 100% 100%; } 
+  20%        { background-size: 110% 110%; } /* primo bump */
+  /* 40%        { background-size: 100% 100%; }
+  60%        { background-size: 115% 115%; } /* secondo bump più forte */
+  /* 80%        { background-size: 100% 100%; }
+} */ 
+
+.sfondo12 {
+  background: radial-gradient(circle, #051014 10%, #000000 80%);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Cerchio centrale: rappresenta il Narratore */
+.sfondo12::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 45px;
+  height: 45px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,255,255,0.3) 10%, rgba(0, 100, 200, 0.5) 40%, transparent 70%);
+  box-shadow: 0 0 30px rgba(0,255,255,0.4), 0 0 60px rgba(0,100,255,0.3) inset;
+  animation: eventoPulse 6s ease-in-out infinite;
+  z-index: 1;
+}
+
+/* Effetto battito/pulsazione morbida */
+@keyframes eventoPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+}
+
+/* Stringhe stile Matrix */
+.stringaMatrix {
+  position: absolute;
+  top: -120%;
+  width: 2px;
+  height: 250%;
+  background: linear-gradient(to bottom, rgba(0,255,0,0) 0%, rgba(0,255,0,0.7) 50%, rgba(0,255,0,0) 100%);
+  animation: matrixFall 2s linear infinite;
+  opacity: 0.3;
+  z-index: 0;
+  border-radius: 2dvh;
+}
+
+@keyframes matrixFall {
+  0% { top: -120%; }
+  100% { top: 100%; }
+}
+
+/* SFONDO FANTASMA
+.sfondo13 {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, #0ff 0%, #00f 40%, #000 80%);
+  animation: distortoZona 6s infinite ease-in-out;
+  z-index: 0;
+}
+
+@keyframes distortoZona {
+  0%, 100% { background-size: 100% 100%; background-position: center; filter: hue-rotate(0deg); }
+  25% { background-size: 120% 80%; background-position: 40% 60%; filter: hue-rotate(45deg); }
+  50% { background-size: 90% 110%; background-position: 60% 40%; filter: hue-rotate(180deg); }
+  75% { background-size: 110% 120%; background-position: center; filter: hue-rotate(270deg); }
+} */
+
+.sfondo14 {
+  background: radial-gradient(circle, #d3ea77 7%, #507aeb 20%);
+  animation: pulsazione14 6s ease-in-out infinite;
+}
+
+@keyframes pulsazione14 {
+  0%, 100% { background-size: 100% 100%; }
+  20% { background-size: 120% 120%; }
+}
+
+.sfondo15 {
+  background: radial-gradient(circle, #69d5f0 2%, #bfc783 10%);
+  animation: pulsazione15 6s ease-in-out infinite;
+  background-position: 50% 50%;
+  background-size: 100% 100%;
+}
+
+@keyframes pulsazione15 {
+  0%   { background-size: 100% 100%; background-position: 50% 50%; }
+
+  /* Pulsazione e salto a destra */
+  10%  { background-size: 110% 110%; background-position: 70% 30%; } /* in alto a destra */
+  15%  { background-size: 100% 100%; background-position: 70% 70%; } /* atterra in basso a destra */
+
+  /* Pulsazione e salto a sinistra */
+  25%  { background-size: 110% 110%; background-position: 30% 30%; } /* in alto a sinistra */
+  30%  { background-size: 100% 100%; background-position: 30% 70%; } /* atterra in basso a sinistra */
+
+  /* Rimbalzo sinistra 2 */
+  40%  { background-size: 110% 110%; background-position: 35% 35%; }
+  45%  { background-size: 100% 100%; background-position: 35% 65%; }
+
+  /* Torna al centro con salto */
+  55%  { background-size: 110% 110%; background-position: 50% 30%; }
+  60%  { background-size: 100% 100%; background-position: 50% 50%; }
+
+  100% { background-size: 100% 100%; background-position: 50% 50%; } /* chiude il loop */
+}
+
+.sfondo16 {
+  background: radial-gradient(circle, #69d5f0 28%, #00a6ff 33%);
+  animation: pulsazione16 8s ease-in-out infinite; /* durata allungata per lentezza */
+  background-position: center center;
+  background-size: 100% 100%;
+}
+
+@keyframes pulsazione16 {
+  0%, 100% { background-size: 100% 100%; }
+  25%      { background-size: 130% 130%; } /* pulsazione grande */
+  50%      { background-size: 110% 110%; } /* rilassa un po’ */
+  75%      { background-size: 125% 125%; } /* nuova espansione */
+}
+
+
+.sfondo17 {
+  background: radial-gradient(circle, #69d5f0 28%, #00a6ff 33%);
+  animation: pulsazione17 9s ease-in-out infinite;
+}
+
+@keyframes pulsazione17 {
+  0%, 100% { background-size: 100% 100%; }
+  20% { background-size: 120% 120%; }
+}
+
+.sfondo18 {
+  background: radial-gradient(circle, #4de3b6 10%, #b466d8 40%);
+  animation: pulsazione18 6s ease-in-out infinite;
+  overflow: hidden;
+  position: relative;
+}
+
+.sfondo18::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 60px;
+  background: linear-gradient(to right, rgba(255,255,255,0.4), rgba(255,255,255,0));
+  transform: translate(-50%, -50%) rotate(15deg);
+  animation: luceLato 4s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.sfondo18::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  animation: contornoEventi 4s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes pulsazione18 {
+  0%, 100% { background-size: 100% 100%; }
+  20% { background-size: 120% 120%; }
+}
+
+@keyframes luceLato {
+  0%, 100% { transform: translate(-50%, -50%) scaleX(0.6) rotate(15deg); opacity: 0.2; }
+  50% { transform: translate(-50%, -50%) scaleX(1.2) rotate(15deg); opacity: 0.4; }
+}
+
+@keyframes contornoEventi {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.3;
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.6;
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+
+.sfondo19 {
+  background: radial-gradient(circle, #f6ff00 7%, #8395c7 10%);
+  animation: pulsazione19 6s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.sfondo19::before,
+.sfondo19::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 120px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: orbitaAnello1 10s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sfondo19::after {
+  width: 220px;
+  height: 90px;
+  border-color: rgba(255, 255, 255, 0.2);
+  animation: orbitaAnello2 12s linear infinite reverse;
+}
+
+@keyframes orbitaAnello1 {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes orbitaAnello2 {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes orbitaAnello3 {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+
+.sfondo20 {
+  background: radial-gradient(circle, #f6ff00 7%, #00a13b 10%);
+  animation: pulsazione20 6s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.sfondo20::before,
+.sfondo20::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Anello 1 */
+.sfondo20::before {
+  width: 300px;
+  height: 120px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  animation: orbitaAnello1 10s linear infinite;
+}
+
+/* Anello 2 */
+.sfondo20::after {
+  width: 200px;
+  height: 0px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  animation: orbitaAnello2 10s linear infinite reverse;
+}
+
+/* Anello 3 grosso, tipo Saturno */
+.sfondo20::after {
+  box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.07);
+  animation: orbitaAnello3 15s linear infinite;
+}
+
+@keyframes orbitaAnello1 {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes orbitaAnello2 {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes orbitaAnello3 {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+
+/* SUPERNOVA */
+.sfondo21 {
+  background: radial-gradient(circle, #fffbd0 5%, #f69e9e 15%, #1b002e 70%);
+  animation: supernovaPulse 8s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow centrale tipo Narratore */
+.sfondo21::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.2) 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: cuoreSupernova 6s ease-in-out infinite;
+  z-index: 2;
+}
+
+/* Espansione luce circolare */
+.sfondo21::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  animation: ondeSupernova 3s ease-out infinite;
+  z-index: 1;
+}
+
+/* Anelli concentrici che si espandono */
+@keyframes ondeSupernova {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    border-width: 2px;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(5);
+    border-width: 1px;
+  }
+}
+
+/* Pulsazione della sfera centrale */
+@keyframes cuoreSupernova {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Pulsazione leggera dello sfondo */
+@keyframes supernovaPulse {
+  0%, 100% { background-size: 100% 100%; }
+  20% { background-size: 110% 110%; }
+}
+
+/* FINE FINALE */
+
+#finaleBox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 1.6rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 20px 40px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 80vw;
+  z-index: 999;
+  opacity: 0;
+  animation: fadeFinale 6s ease-out forwards;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(3px);
+}
+  
+@keyframes fadeFinale {
+  0%   { opacity: 0; transform: translate(-50%, -55%) scale(0.95); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* addio narratore */
+/* Quando entra la fase finale */
+.sfondo21.finale-svanimento {
+  animation: dissolviSupernova 15s ease-out forwards;
+}
+
+/* Spariscono Narratore e Anelli */
+.sfondo21.finale-svanimento::before,
+.sfondo21.finale-svanimento::after {
+  animation: none !important;
+  opacity: 0 !important;
+  transition: opacity 4s ease-out;
+}
+
+#sfondo.nightfade {
+  animation: fadeToSpazio 4s ease-in-out forwards;
+}
+
+/* Sfondo finale nero-blu */
+@keyframes fadeToSpazio {
+  0%   { background: radial-gradient(circle, #fffbd0 5%, #1b002e 70%); }
+  100% { background: radial-gradient(circle, #000010 5%, #000000 100%); }
+}
+
+
+.stella-cadente {
+  position: fixed;
+  width: 1px;
+  height: 25px;
+  background: linear-gradient(to top right, white, transparent);
+  transform: rotate(45deg);
+  opacity: 0.5;
+  z-index: 10;
+  animation: sciaStella 10s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes sciaStella {
+  0% {
+    transform: translate(0, 0) rotate(45deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-150vw, 150vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* 🌟 brillio sulla punta della stella */
+.brillio-stella {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, white 0%, rgba(255, 255, 255, 0.4) 60%, transparent 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 8px white;
+  animation: brillio 1s infinite ease-in-out;
+}
+
+@keyframes brillio {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
