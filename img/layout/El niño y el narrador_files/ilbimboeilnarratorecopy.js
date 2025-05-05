@@ -578,7 +578,7 @@ let eventiStorici = {};
 
 async function caricaEventiStorici() {
     try {
-        const risposta = await fetch("eventi.json");
+        const risposta = await fetch("eventi/eventi.json");
         eventiStorici = await risposta.json();
         console.log("Dati STORIA", eventiStorici);
     } catch (errore) {
