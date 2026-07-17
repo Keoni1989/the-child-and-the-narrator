@@ -1,15 +1,3 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "ilbimboeilnarratore.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "ilbimboeilnarratore/index.html"
-    }
-  ]
+  "version": 2
 }
