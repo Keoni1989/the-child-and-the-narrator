@@ -19,6 +19,9 @@ As I learned new concepts, I kept expanding the project, turning it into a perso
 Personal project.
 The story is largely complete and the repository represents my first exploration of front-end development.
 
+## Live Demo
+https://the-child-and-the-narrator.vercel.app
+
 ## Preview
 <img width="1868" height="847" alt="Screenshot 2026-07-18 013059" src="https://github.com/user-attachments/assets/38e041df-4cf9-408c-86e9-cb14e6778871" />
 <img width="1890" height="847" alt="Screenshot 2026-07-18 013132" src="https://github.com/user-attachments/assets/d8f192db-6bcf-4581-9e0f-e23aad7f98fa" />
