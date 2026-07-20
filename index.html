@@ -1,29 +1,43 @@
 <!DOCTYPE html>
-<html>
- <head>
+<html lang="it">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El niño y el narrador</title>
+
+    <meta
+        name="description"
+        content="Una storia interattiva per bambini con narrazione e mini-giochi educativi."
+    >
+
+    <title>Il bambino e il narratore</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap"
+        rel="stylesheet"
+    >
+
     <link rel="stylesheet" href="css/style.css">
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div id="sfondo"></div>
+    <div id="sfondo" aria-hidden="true"></div>
+
     <div id="conversazione">
-        <p id="dialogo">Ciao piccolino 😊 </p>
-        <button id="aho">Ciao!</button>
+        <p id="dialogo" aria-live="polite">Ciao piccolino 😊</p>
+        <button id="aho" type="button">Ciao!</button>
     </div>
 
-
-    <!-- porta1 il planetario -->
+    <!-- Porta 1: il planetario -->
     <div id="minigioco-spazio">
         <div id="centro">Narratore</div>
+
         <div class="pianeta" data-nome="Sole"></div>
         <div class="pianeta" data-nome="Mercurio"></div>
         <div class="pianeta" data-nome="Venere"></div>
         <div class="pianeta" data-nome="Terra"></div>
-        <div class="pianeta" data-nome="Luna"></div>        
+        <div class="pianeta" data-nome="Luna"></div>
         <div class="pianeta" data-nome="Marte"></div>
         <div class="pianeta" data-nome="Giove"></div>
         <div class="pianeta" data-nome="Saturno"></div>
@@ -32,16 +46,14 @@
         <div class="pianeta" data-nome="Plutone"></div>
     </div>
 
-
-    <!-- porta2 la preistoria -->
-    <div id="minigioco-dino" style="display:none;">
+    <!-- Porta 2: la preistoria -->
+    <div id="minigioco-dino" style="display: none;">
         <div id="dino"></div>
-        <p id="dialogoDino"></p>
+        <p id="dialogoDino" aria-live="polite"></p>
     </div>
 
-
-<!-- Porta 3: La Storia -->
-    <div id="carosello" class="carosello" style="display:none">
+    <!-- Porta 3: la storia -->
+    <div id="carosello" class="carosello" style="display: none;">
         <div class="era" epoca="egiziani"></div>
         <div class="era" epoca="romani"></div>
         <div class="era" epoca="medioevo"></div>
@@ -50,20 +62,36 @@
         <div class="era" epoca="spaziale"></div>
         <div class="era" epoca="contemporanea"></div>
     </div>
-    
-    <!-- porta4 l'oceano -->
-    <div id="minigioco-oceano" style="display:none;">
-        <div id="sottomarino"></div>
-            <p id="istruzioniOceano">Scrivi gli oggetti che vedi!</p>
 
-            <div id="inputWrapper">
-                <input type="text" id="inputOceano" placeholder="Scrivi qui...">
-                <button id="btnOceano"></button>
-            </div>
-            
+    <!-- Porta 4: l'oceano -->
+    <div id="minigioco-oceano" style="display: none;">
+        <div id="sottomarino"></div>
+
+        <p id="istruzioniOceano">Scrivi gli oggetti che vedi!</p>
+
+        <div id="inputWrapper">
+            <input
+                type="text"
+                id="inputOceano"
+                placeholder="Scrivi qui..."
+                aria-label="Nome dell'oggetto"
+                autocomplete="off"
+            >
+
+            <button
+                id="btnOceano"
+                type="button"
+                aria-label="Conferma risposta"
+            ></button>
+        </div>
+
         <div id="oggettiOceano"></div>
-        <p id="timerOceano"></p>
+        <p id="timerOceano" aria-live="polite"></p>
     </div>
+
+    <script src="js/story.js"></script>
+</body>
+</html>
 
 
 <script src="js/story.js"></script>
