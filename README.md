@@ -17,7 +17,7 @@ As I learned new concepts, I kept expanding the project, turning it into a perso
 ## Status
 
 Personal project.
-The story is largely complete and the repository represents my first exploration of front-end development.
+The story is largely complete and represents my first exploration of front-end development. I built it incrementally while learning JavaScript from the ground up, writing and testing each new concept as I introduced it into the story.
 
 ## Live Demo
 https://the-child-and-the-narrator.vercel.app
